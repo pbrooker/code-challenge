@@ -11,5 +11,6 @@
 |
 */
 
-Route::get('/', "SearchController@index");
+Route::get('/', "SearchController@index")->name('home');
 Route::post('/search', "SearchController@search");
+Route::get('/detail/{type}/{id}/{name}', 'DetailController@show')->name('detail.show');

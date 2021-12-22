@@ -15,37 +15,29 @@
             height: 100vh;
             margin: 50px;
         }
+        .text-blue {
+            color: #84B7DD;
+        }
 
         .full-height {
             height: 100vh;
-        }
-
-        .result {
         }
     </style>
 </head>
 <body>
     <div class="full-height">
-        <div class="result">
-            Your Search Term Was: <b>{{ $searchTerm }}</b>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="result">
-                    <h3>Results</h3>
-                    <div class="row">
-                        <div class="col-md-4">
-                            {!! $resultViews['albums'] !!}
-                        </div>
-                        <div class="col-md-4">
-                            {!! $resultViews['artists'] !!}
-                        </div>
-                        <div class="col-md-4">
-                            {!! $resultViews['tracks'] !!}
-                        </div>
-                    </div>
+        <div class="container">
+            <a href="{{ route('home') }}">
+                <h7 class="text-blue">Search again</h7>
+            </a>
+            @if (!empty($detail))
+                <h3>{{ $detail['type'] }} Details</h3>
+                <div class="row">
+                    {!! $detail['item_view'] !!}
                 </div>
-            </div>
+            @else
+                <h3>No results found</h3>
+            @endif
         </div>
     </div>
 </body>
